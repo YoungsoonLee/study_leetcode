@@ -15,6 +15,6 @@ func intToRoman(num int) string {
 }
 
 func main() {
-	a := 1994
+	a := 800
 	intToRoman(a)
 }
