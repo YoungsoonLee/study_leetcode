@@ -23,6 +23,7 @@ func dfs(left, right, idx int, bytes []byte, res *[]string) {
 
 	// "("일치하는 것에 대해 걱정하지 마십시오.
 	// 직접 추가하려면 왼쪽> 0을 더하십시오.
+
 	if left > 0 {
 		bytes[idx] = '('
 		dfs(left-1, right, idx+1, bytes, res)
