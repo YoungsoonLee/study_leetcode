@@ -13,6 +13,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// 재귀
 func merge(lists []*ListNode) *ListNode {
 	length := len(lists)
 	half := length / 2
