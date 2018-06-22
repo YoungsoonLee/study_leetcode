@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -26,7 +28,20 @@ func swapPairs(head *ListNode) *ListNode {
 	// 헤드 노드를 가리킨 다음 newHead를 보자.
 	newHead.Next = head
 
+	fmt.Println("head: ", head)
+	fmt.Println("new: ", newHead)
+
 	return newHead
+}
+
+func main() {
+	l4 := &ListNode{Val: 4, Next: nil}
+	l3 := &ListNode{Val: 3, Next: l4}
+	l2 := &ListNode{Val: 2, Next: l3}
+	l1 := &ListNode{Val: 1, Next: l2}
+	r := swapPairs(l1)
+	fmt.Println(r)
+
 }
 
 func swapPairs_my(head *ListNode) *ListNode {
@@ -41,5 +56,3 @@ func swapPairs_my(head *ListNode) *ListNode {
 	return head
 
 }
-
-func main() {}
