@@ -24,7 +24,7 @@ func swapPairs(head *ListNode) *ListNode {
 	newHead := head.Next
 
 	// head.Next 노드를 newHead로 변환합니다.
-	head.Next = swapPairs(newHead.Next)
+	head.Next = swapPairs(newHead.Next) // return & recursive
 	// 헤드 노드를 가리킨 다음 newHead를 보자.
 	newHead.Next = head
 
@@ -41,7 +41,6 @@ func main() {
 	l1 := &ListNode{Val: 1, Next: l2}
 	r := swapPairs(l1)
 	fmt.Println(r)
-
 }
 
 func swapPairs_my(head *ListNode) *ListNode {
