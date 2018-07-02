@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"io/ioutil"
+	"log"
 	"os"
 	"sort"
+	"strings"
 )
 
 // you can also use imports, for example:
@@ -127,8 +129,14 @@ func Solution_1(A []int) int {
 }
 
 func main() {
-	bytes, err := ioutil.ReadAll(os.Stdin)
-	if err == nil {
-		fmt.Printf(string(bytes))
+	scanner := bufio.NewScanner(os.Stdin)
+	if !scanner.Scan() {
+		log.Printf("Failed to read: %v", scanner.Err())
+		return
 	}
+	line := scanner.Bytes()
+	s := strings.Split(string(line), " ")
+	fmt.Println("bb: ", string(line))
+	fmt.Println("s: ", s[0])
+
 }

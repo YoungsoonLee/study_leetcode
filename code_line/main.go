@@ -30,10 +30,13 @@ func main() {
 
 		memcpy(array, dest, src, size)
 	*/
-	q := make([]int, 0)
-	min := 1<<63 - 1
-	fmt.Println(min)
-	add(5, q, &min)
+
+	/*
+		q := make([]int, 0)
+		min := 1<<63 - 1
+		fmt.Println(min)
+		add(5, q, &min)
+	*/
 
 }
 

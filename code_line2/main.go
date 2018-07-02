@@ -1,11 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
 
 	q := make([]int, 0)
 	min := 1<<63 - 1
+	re := make([]int, 0)
 
 	var op string
 	var num int
@@ -17,11 +21,11 @@ func main() {
 		}
 
 		if op == "min" {
-			fmt.Println(min)
+			re = append(re, min)
 		}
 
 		if op == "remove" {
-			remove(&q, &min)
+			re = append(re, remove(&q, &min))
 		}
 
 		if op == "exit" {
@@ -29,8 +33,9 @@ func main() {
 		}
 	}
 
-	//fmt.Println(min)
-	//add(5, q, &min)
+	for _, r := range re {
+		fmt.Println(r)
+	}
 }
 
 func add(n int, q *[]int, m *int) {
@@ -41,19 +46,23 @@ func add(n int, q *[]int, m *int) {
 	} else {
 		for i := 0; i < len((*q))-1; i++ {
 			//fmt.Println(getMin((*q)[i], (*q)[i+1]), (*q)[i], (*q)[i+1])
-			*m = getMin((*q)[i], (*q)[i+1])
+			*m = min((*q)[i], (*q)[i+1])
 		}
 	}
 }
 
-func getMin(a, b int) int {
+func min(a, b int) int {
 	if a < b {
 		return a
 	}
 	return b
 }
 
-func remove(q *[]int, m *int) {
+func remove(q *[]int, m *int) int {
+	if len(*q) == 0 {
+		log.Fatalln("Exception not exists")
+	}
+
 	x := (*q)[0]
 	// Discard top element
 	*q = (*q)[1:]
@@ -63,10 +72,10 @@ func remove(q *[]int, m *int) {
 	} else {
 		for i := 0; i < len((*q))-1; i++ {
 			//fmt.Println(getMin((*q)[i], (*q)[i+1]), (*q)[i], (*q)[i+1])
-			*m = getMin((*q)[i], (*q)[i+1])
+			*m = min((*q)[i], (*q)[i+1])
 
 		}
 	}
 
-	fmt.Println(x)
+	return x
 }
