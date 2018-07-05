@@ -59,6 +59,7 @@ func deepFindCycle(gr [][]string, i, j int, c *int) {
 	for k := 0; k < len(gr[j][0]); k++ {
 		if gr[j][k] == "1" {
 			*c++
+			deepFindCycle(gr, i, j, c)
 		} else {
 			break
 		}
