@@ -25,6 +25,7 @@ func fill(board [][]byte, n byte, block int) bool {
 			if board[r][c] == n {
 				// There is already n in the block, no need to fill in
 				// to fill in n+1
+
 				return fill(board, n+1, block)
 			}
 		}
