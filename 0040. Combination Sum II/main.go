@@ -7,6 +7,7 @@ import (
 
 func combinationSum2(candidates []int, target int) [][]int {
 	sort.Ints(candidates)
+	fmt.Println(candidates)
 
 	res := [][]int{}
 	solution := []int{}
@@ -30,6 +31,7 @@ func cs2(candidates []int, solution []int, target int, res *[][]int) {
 	// 기본 배열에 여러 번 수정하면 동시에 잘못된 결과가 발생합니다.
 	// 다음 문을 주석으로 처리하고, 단위 테스트를 실행하고, 오류가 발생했는지 확인할 수 있습니다.
 	solution = solution[:len(solution):len(solution)]
+	fmt.Println("solution: ", solution)
 
 	cs2(candidates[1:], append(solution, candidates[0]), target-candidates[0], res)
 
@@ -42,6 +44,7 @@ func next(candidates []int) []int {
 	for i+1 < len(candidates) && candidates[i] == candidates[i+1] {
 		i++
 	}
+	//fmt.Println(candidates[i+1:])
 	return candidates[i+1:]
 }
 
