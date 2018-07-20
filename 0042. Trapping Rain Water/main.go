@@ -72,14 +72,11 @@ func trap3(height []int) int {
 		right[length-1-i] = max(right[length-i], height[length-1-i])
 	}
 
-	fmt.Println("left: ", left)
-	fmt.Println("right: ", right)
-
 	water := 0
 	for i := 0; i < length; i++ {
 		water += min(left[i], right[i]) - height[i]
 	}
-	fmt.Println("water: ", water)
+
 	return water
 
 }
