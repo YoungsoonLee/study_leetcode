@@ -30,6 +30,12 @@ func echo2(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id := vars["id"]
 	log.Println(id)
+
+	user := User{}
+	err := json.NewDecoder(r.Body).Decode(&user)
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 func echo(w http.ResponseWriter, r *http.Request) {
