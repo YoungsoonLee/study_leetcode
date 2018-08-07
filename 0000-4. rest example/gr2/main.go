@@ -8,6 +8,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// user struct
 type User struct {
 	username string `json:"username"`
 	password string `json:"password"`
