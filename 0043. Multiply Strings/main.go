@@ -45,7 +45,8 @@ func multiply(num1 string, num2 string) string {
 	// conversion result
 	// temp is chosen to be []int instead of []byte because
 	// In Go, the base structure of byte is uint8, and the maximum value is 255.
-	// temp will overflow if you don’t consider the carry
+	// temp will overflow if you don’t consider the carry/
+	// importance
 	res := make([]byte, len(temp))
 	for i := 0; i < len(temp); i++ {
 		res[i] = '0' + byte(temp[i])
