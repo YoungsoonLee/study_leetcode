@@ -46,6 +46,8 @@ func main() {
 
 	c <- 1 // start
 
+	// channel is important
+
 	time.Sleep(500 * time.Millisecond)
 	fmt.Println(len(data))
 
