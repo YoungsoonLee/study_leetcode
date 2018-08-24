@@ -41,6 +41,8 @@ func isMatch(s string, p string) bool {
 				// dp [i] [j-1] == true는
 				// s [: i + 1]이 p [: j]와 일치 할 때 p [: j], s [: i + 1] 및 p [: j + 1] 다음에 '*'를 추가하십시오.
 				// 왜냐하면 '*'는 null 문자와 일치 할 수 있기 때문입니다.
+				//
+				//
 				dp[i][j] = dp[i-1][j] || dp[i][j-1]
 			}
 		}
