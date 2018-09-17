@@ -27,6 +27,8 @@ func main() {
 		}
 	}
 
+	//checkingss
+
 	fmt.Println("Min: ", min)
 	fmt.Println("Max: ", max)
 }
