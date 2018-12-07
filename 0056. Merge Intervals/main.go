@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 /**
  * Definition for an interval.
@@ -16,27 +19,51 @@ type Interval struct {
 }
 
 func merge(intervals []Interval) []Interval {
-	n := len(intervals)
-	fmt.Println(n)
-
-	var res []Interval
-
-	if n == 1 {
+	if len(intervals) <= 1 {
 		return intervals
 	}
 
-	for i := 1; i < n; i++ {
-		if intervals[i-1].End >= intervals[i].Start {
-			temp := Interval{intervals[i-1].Start, intervals[i].End}
-			res = append(res, temp)
+	sort.Slice(intervals, func(i int, j int) bool {
+		return intervals[i].Start < intervals[j].Start
+	})
+
+	fmt.Println(intervals)
+
+	res := make([]Interval, 0, len(intervals))
+	temp := intervals[0]
+	for i := 1; i < len(intervals); i++ {
+		if intervals[i].Start <= temp.End {
+			temp.End = max(temp.End, intervals[i].End)
 		} else {
-			temp := Interval{intervals[i].Start, intervals[i].End}
 			res = append(res, temp)
+			temp = intervals[i]
 		}
 	}
 
-	fmt.Println(res)
+	res = append(res, temp)
 	return res
+
+	/*
+		for i := 1; i < n; i++ {
+			if intervals[i-1].End >= intervals[i].Start {
+				temp := Interval{intervals[i-1].Start, intervals[i].End}
+				res = append(res, temp)
+			} else {
+				temp := Interval{intervals[i].Start, intervals[i].End}
+				res = append(res, temp)
+			}
+		}
+
+		fmt.Println(res)
+	*/
+
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 
 func main() {
