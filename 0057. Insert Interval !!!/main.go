@@ -29,6 +29,7 @@ func insert(intervals []Interval, newInterval Interval) []Interval {
 	for i := range intervals {
 		if isOverlap(intervals[i], newInterval) {
 			newInterval = merge(intervals[i], newInterval)
+			fmt.Println("merge: ", newInterval)
 
 			if i == lenA-1 {
 				res = append(res, newInterval)
