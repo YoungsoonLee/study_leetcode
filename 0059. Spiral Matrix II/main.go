@@ -40,31 +40,18 @@ func nextFunc(n int) func() (int, int) {
 		x += dx
 		y += dy
 		switch {
-		/*
-			case y+dy > right:
-				top++
-				dx, dy = 1, 0
-			case x+dx > down:
-				right--
-				dx, dy = 0, -1
-			case y+dy < left:
-				down--
-				dx, dy = -1, 0
-			case x+dx < top:
-				left++
-				dx, dy = 0, 1
-		*/
-		case x+dx > right:
-			right--
-			dx, dy = 1, 0
-		case y+dy > down:
-			down--
-			dx, dy = 0, -1
-		case x+dx < left:
-			left++
-			dx, dy = 0, 1
-		case y+dy < top:
+
+		case y+dy > right:
 			top++
+			dx, dy = 1, 0
+		case x+dx > down:
+			right--
+			dx, dy = 0, -1
+		case y+dy < left:
+			down--
+			dx, dy = -1, 0
+		case x+dx < top:
+			left++
 			dx, dy = 0, 1
 		}
 
