@@ -5,6 +5,7 @@ import (
 )
 
 // 퍼뮤테이션은 재귀 !!!
+// 퍼뮤테이션은 재귀~!!!
 func getPermutation(n int, k int) string {
 	if n == 0 {
 		return ""
