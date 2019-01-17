@@ -6,7 +6,7 @@ type ListNode struct {
 }
 
 func rotateRight(head *ListNode, k int) *ListNode {
-
+	// rotate list
 }
 
 func main() {
