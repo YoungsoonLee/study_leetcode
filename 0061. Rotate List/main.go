@@ -12,6 +12,8 @@ type ListNode struct {
 func rotateRight(head *ListNode, k int) *ListNode {
 	//fmt.Println("k: ", k)
 
+	// k is rotate couns.
+
 	if k == 0 || head == nil {
 		return head
 	}
