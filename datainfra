@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS kpi(
+	territory character varying(20)  NOT NULL,
+	date date NOT NULL,
+	mcu_d integer NULL,
+	avg_d integer NULL,
+	uu_d integer NULL,
+	nru_d integer NULL,
+	rev_d integer NULL,
+	rev_ur_d integer NULL,
+	rev_pc_d integer NULL,
+	pu_d integer NULL,
+	pur_d numeric(7,2)  NULL,
+	arppu_d integer NULL,
+	dt numeric(7,2)  NULL,
+	mrppu_d integer NULL,
+	rev_t integer NULL,
+	rev_rate numeric NULL,
+	bu integer NULL,
+	CONSTRAINT "kpi_pkey" PRIMARY KEY (territory),
+	CONSTRAINT "kpi_pkey" PRIMARY KEY (date)
+ );
+
+COMMENT ON TABLE public.kpi IS 'null';
+
+datainfra
+naddic_dbinfra/ vH1J88Hd7vun
