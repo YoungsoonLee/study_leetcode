@@ -52,10 +52,12 @@ func climbStairs3(n int) int {
 	dp := make([]int, n+1)
 	dp[1] = 1
 	dp[2] = 2
+	fmt.Println(dp)
 	for i := 3; i <= n; i++ {
+
 		dp[i] = dp[i-1] + dp[i-2]
 	}
-
+	fmt.Println(dp)
 	return dp[n]
 }
 
@@ -84,13 +86,13 @@ func climbStairs4(n int) int {
 
 func main() {
 	n := 5
-	fmt.Println(climbStairs4(n))
-	n = 4
-	fmt.Println(climbStairs4(n))
+	//fmt.Println(climbStairs4(n))
+	n = 5
+	fmt.Println(climbStairs3(n))
 	n = 3
-	fmt.Println(climbStairs4(n))
+	//fmt.Println(climbStairs4(n))
 	n = 2
-	fmt.Println(climbStairs4(n))
+	//fmt.Println(climbStairs4(n))
 	n = 44
-	fmt.Println(climbStairs4(n))
+	//fmt.Println(climbStairs4(n))
 }
