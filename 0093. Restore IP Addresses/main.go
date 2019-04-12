@@ -11,6 +11,8 @@ func restoreIpAddresses(s string) []string {
 	res := []string{}
 	combination := make([]string, 4)
 
+	fmt.Println("combination: ", combination)
+
 	var dfs func(int, int)
 	dfs = func(idx, begin int) {
 		// fmt.Println(idx, begin)
@@ -29,20 +31,20 @@ func restoreIpAddresses(s string) []string {
 
 		for end := begin + 1; end <= n-(3-idx); end++ {
 			if end+maxRemain < n {
-				// 后面的 IP 段 至少有一个超过了 3 个字符
-				// 说明此IP段短了
+				// 다음 IP 세그먼트 중 하나 이상이 3자를 초과합니다.
+				// 이 IP 세그먼트가 짧다는 것을 설명합니다.
 				continue
 			}
 
 			if end-begin > 3 {
-				// 此 IP 段长度，超过 3 位了
+				//이 IP 세그먼트가 3 자리 이상입니다.
 				break
 			}
 
 			temp := s[begin:end]
 			if isOK(temp) {
 				combination[idx] = temp
-				dfs(idx+1, end)
+				dfs(idx+1, end) // !!!!!
 			}
 		}
 	}
