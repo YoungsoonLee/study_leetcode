@@ -8,7 +8,35 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// bfs
+func bfs(s *[][]int, level int, root *TreeNode) {
+	if root == nil {
+		return
+	}
+
+	if len(*s) == level {
+		*s = append(*s, []int{})
+	}
+
+	(*s)[level] = append((*s)[level], root.Val)
+
+	for _, v := range []*TreeNode{root.Left, root.Right} { // !!!
+		bfs(s, level+1, v)
+	}
+}
+
 func levelOrder(root *TreeNode) [][]int {
+	if root == nil {
+		return [][]int{}
+	}
+
+	var s [][]int
+	bfs(&s, 0, root)
+	return s
+}
+
+// dfs
+func levelOrder2(root *TreeNode) [][]int {
 	res := [][]int{}
 	var dfs func(*TreeNode, int)
 
@@ -21,9 +49,10 @@ func levelOrder(root *TreeNode) [][]int {
 		}
 
 		// 새로운 레벨이 나타났습니다.
-		if level > len(res) {
+		if level == len(res) {
 			res = append(res, []int{})
 		}
+
 		res[level] = append(res[level], root.Val)
 
 		dfs(root.Left, level+1)
@@ -33,30 +62,6 @@ func levelOrder(root *TreeNode) [][]int {
 	dfs(root, 0)
 
 	return res
-	/*
-		result := make([][]int, 0)
-
-		// save root
-		result = append(result, []int{root.Val})
-
-		for root.Left != nil && root.Right != nil {
-			recursive(root.Left, &result)
-			recursive(root.Right, &result)
-			if root.Left != nil {
-				root = root.Left
-			}
-			if root.Right != nil {
-				root = root.Right
-			}
-		}
-
-		fmt.Println(result)
-		return result
-	*/
-}
-
-func recursive(node *TreeNode, result *[][]int) {
-	*result = append(*result, []int{node.Val})
 }
 
 func main() {
