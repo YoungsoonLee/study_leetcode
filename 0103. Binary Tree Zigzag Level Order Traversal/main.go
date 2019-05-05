@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"golang.org/x/text/language"
+)
 
 type TreeNode struct {
 	Val   int
@@ -27,6 +31,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 		} else {
 			temp := make([]int, len(res[level])+1)
 			temp[0] = root.Val
+
 			copy(temp[1:], res[level])
 
 			fmt.Println(temp)
@@ -45,5 +50,6 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 }
 
 func main() {
-
+	us, _ := language.ParseRegion("VN")
+	fmt.Println(us)
 }
