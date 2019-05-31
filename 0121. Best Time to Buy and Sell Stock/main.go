@@ -31,7 +31,7 @@ func maxProfit2(prices []int) int {
 	//fmt.Println("oo")
 	for i := 1; i < len(prices); i++ {
 		temp += prices[i] - prices[i-1]
-		//fmt.Println(temp)
+		fmt.Println(temp)
 		if temp < 0 {
 			temp = 0
 		}
@@ -39,7 +39,7 @@ func maxProfit2(prices []int) int {
 			max = temp
 		}
 	}
-	fmt.Println(max)
+	//fmt.Println(max)
 	return max
 }
 

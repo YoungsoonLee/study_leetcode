@@ -24,9 +24,9 @@ func generate(numRows int) [][]int {
 
 func getNext(p []int) []int {
 	r := make([]int, 1, len(p)+1)
-	fmt.Println(r)
-	r = append(r, p...)
-	fmt.Println(r)
+	// fmt.Println(r)
+	r = append(r, p...) // !!!
+	// fmt.Println(r)
 
 	for i := 0; i < len(r)-1; i++ {
 		r[i] = r[i] + r[i+1]
