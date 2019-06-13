@@ -53,7 +53,7 @@ func max(a, b int) int {
 	}
 	return b
 }
-.
+
 /*
 func candy(ratings []int) int {
 	m := make(map[int]int)
@@ -95,7 +95,17 @@ func candy(ratings []int) int {
 }
 */
 
+func hello(num ...int) {
+	fmt.Println(num)
+	num[0] = 18
+}
+
 func main() {
 	c := []int{1, 2, 2}
 	candy(c)
+
+	i := []int{5, 6, 7}
+	hello(i...)
+	fmt.Println(i[0])
+
 }
