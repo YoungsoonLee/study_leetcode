@@ -33,6 +33,7 @@ func split(head *ListNode) (left, right *ListNode) {
 	slowPre.Next = nil
 	// 목록의 길이가 2 일 때 slowPre를 사용하여 길이가 1 인 두 개의 하위 목록으로 분할됩니다.
 	left, right = head, slow
+
 	return
 }
 
