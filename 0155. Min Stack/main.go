@@ -2,52 +2,51 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
-type Stack struct {
-	val []int
-	min int
+type MinStack struct {
+	stack []item
 }
 
-func Constructor() Stack {
-	return Stack{}
+// !!!!
+type item struct {
+	min, x int
 }
 
-func (s *Stack) push(item int) {
-	s.val = append(s.val, item)
+func Constructor() MinStack {
+	return MinStack{}
 }
 
-func (s *Stack) pop() (int, error) {
-	x := s.val[len(s.val)-1]
-	s.val = s.val[:len(s.val)-1] // 개수!!!
-	return x, nil
+func (s *MinStack) Push(x int) {
+	min := x
+	if len(s.stack) > 0 && s.GetMin() < x {
+		min = s.GetMin()
+	}
+
+	s.stack = append(s.stack, item{min: min, x: x})
 }
 
-func (s *Stack) top() (int, error) {
-
-	x := s.val[len(s.val)-1]
-	return x, nil
+func (s *MinStack) Pop() {
+	s.stack = s.stack[:len(s.stack)-1]
 }
 
-func (s *Stack) GetMin() int {
-	minv := make([]int, len(s.val))
-	copy(minv, s.val)
-	//fmt.Println("minv: ", minv)
-	sort.Sort(sort.IntSlice(minv))
+func (s *MinStack) Top() int {
+	return s.stack[len(s.stack)-1].x
+}
 
-	return minv[0]
+func (s *MinStack) GetMin() int {
+	return s.stack[len(s.stack)-1].min
 }
 
 func main() {
 	//ms := &Stack{val: []int{}, count: 0}
 	ms := Constructor()
-	ms.push(3)
-	ms.push(1)
-	ms.push(2)
-	ms.push(4)
-	ms.push(5)
-	ms.pop()
+	ms.Push(3)
+	//ms.Push(1)
+	ms.Push(2)
+	ms.Push(4)
+	ms.Push(5)
+	ms.Pop()
 	//ms.GetMin()
 	fmt.Println(ms.GetMin())
 }
