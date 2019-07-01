@@ -2,6 +2,22 @@ package main
 
 import "fmt"
 
+func twoSumRecap(numbers []int, target int) []int {
+	res := make([]int, 0)
+
+	for i := 1; i < len(numbers); i++ {
+		if numbers[i-1]+numbers[i] == target {
+			res = append(res, []int{i, i + 1}...)
+		}
+
+		if numbers[i] > target {
+			break
+		}
+	}
+
+	return res
+}
+
 func twoSum(numbers []int, target int) []int {
 	re := make([]int, 0)
 	hs := make(map[int]int)
@@ -28,7 +44,10 @@ func twoSum(numbers []int, target int) []int {
 func twoSum2(numbers []int, target int) []int {
 	m := make(map[int]int, len(numbers))
 	fmt.Println(m)
+
 	for i, n := range numbers {
+		fmt.Println("!!: ", m[target-n], m)
+
 		if m[target-n] != 0 {
 			fmt.Println("if: ", m[target-n])
 			return []int{m[target-n], i + 1}
@@ -45,3 +64,5 @@ func main() {
 	fmt.Println(twoSum2(n, t))
 
 }
+
+O9fCZAVqf0f0

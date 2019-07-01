@@ -54,7 +54,7 @@ func toSameLen(a1, a2 []int) ([]int, []int) {
 }
 
 func main() {
-	s1 := "1.0.1"
+	s1 := "1.01"
 	s2 := "1"
 	fmt.Println(compareVersion(s1, s2))
 }
