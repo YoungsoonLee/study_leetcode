@@ -64,5 +64,3 @@ func main() {
 	fmt.Println(twoSum2(n, t))
 
 }
-
-O9fCZAVqf0f0
