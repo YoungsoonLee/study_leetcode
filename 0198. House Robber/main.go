@@ -7,7 +7,7 @@ func rob(nums []int) int {
 	// b is odd max
 	var a, b int
 	for i, v := range nums {
-		fmt.Println(a, b, v)
+		fmt.Println(i, a, b, v)
 		if i%2 == 0 {
 			a = max(a+v, b)
 		} else {

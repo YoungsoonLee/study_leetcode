@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+func reverseBits(num uint32) uint32 {
+	return 0
+}
 
 func main() {
-	fmt.Println(6 & 15)
+
+	// call reverse 함수 ???
 }

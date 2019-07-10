@@ -5,6 +5,23 @@ import (
 	"sort"
 )
 
+/*
+func findContentChildren(g []int, s []int) int {
+	count := 0
+	for si := 0; si < len(s); si++ {
+		for gi := 0; gi < len(g); gi++ {
+			if s[si] == g[gi] {
+				count++
+			}
+		}
+
+	}
+
+	fmt.Println(count)
+	return count
+}
+*/
+
 // g: greed factor, s: size cookie?
 func findContentChildren(g []int, s []int) int {
 	sort.Ints(g)

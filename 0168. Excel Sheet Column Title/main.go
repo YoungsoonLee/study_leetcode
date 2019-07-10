@@ -5,7 +5,9 @@ import "fmt"
 func convertToTitle(n int) string {
 	res := ""
 
-	//fmt.Println(byte(n % 26))
+	fmt.Println(n % 26)
+	fmt.Println(byte(n % 26))
+	fmt.Println(string(byte(n % 26)))
 
 	for n > 0 {
 		n--
@@ -19,6 +21,7 @@ func convertToTitle(n int) string {
 }
 
 func main() {
-	a := 15
+	fmt.Println("1: ", 6%5)
+	a := 701
 	convertToTitle(a)
 }

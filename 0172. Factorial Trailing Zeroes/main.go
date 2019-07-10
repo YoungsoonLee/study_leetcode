@@ -9,6 +9,7 @@ func trailingZeroes(n int) int {
 		}
 		return n * trailingZeroes(n-1)
 	*/
+
 	res := 0
 	for n >= 5 {
 		n /= 5
@@ -17,9 +18,11 @@ func trailingZeroes(n int) int {
 	}
 
 	return res
+
 }
 
 func main() {
-	n := 10
+	n := 12
+
 	fmt.Println(trailingZeroes(n))
 }

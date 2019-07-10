@@ -20,9 +20,11 @@ func rotate(nums []int, k int) {
 	//fmt.Println(nums)
 
 	reverse(nums, 0, n-1) // all reverse !!!!!!
-	//fmt.Println(nums)
+	fmt.Println(nums)
+
 	reverse(nums, 0, k-1) // reverse
-	//fmt.Println(nums)
+	fmt.Println(nums)
+
 	reverse(nums, k, n-1) // reverse
 	fmt.Println(nums)
 
