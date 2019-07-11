@@ -1,18 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func isHappy(n int) bool {
 	slow, fast := n, trans(n)
+	//fmt.Println(slow, fast)
 
 	for slow != fast {
-		//fmt.Println("slow: ", slow)
+		fmt.Println("slow: ", slow)
 		slow = trans(slow)
-		//fmt.Println("fast: ", fast)
+		fmt.Println("fast: ", fast)
 		fast = trans(trans(fast)) // 2x faster
 	}
 
-	fmt.Println(slow, fast)
+	//fmt.Println(slow, fast)
 
 	if slow == 1 {
 		return true
@@ -32,6 +35,7 @@ func trans(n int) int {
 }
 
 func main() {
-	n := 19
+	n := 1999
+	fmt.Println((n % 10) * (n % 10))
 	fmt.Println(isHappy(n))
 }

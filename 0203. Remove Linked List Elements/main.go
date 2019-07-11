@@ -15,7 +15,6 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// !!!!!
 func removeElements(head *ListNode, val int) *ListNode {
 	headPre := ListNode{Next: head}
 	fmt.Println(headPre)
