@@ -2,26 +2,26 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
 func minSubArrayLen(s int, nums []int) int {
-	sort.Ints(nums)
-	count := 0
+	n := len(nums)
+	res, i, j, sum := n+1, 0, 0, 0
 
-	//var n int
+	for j < n {
+		sum += nums[j]
+		j++
 
-	for i := len(nums) - 1; i > 0; i-- {
-		s = s - nums[i]
-		if s != 0 {
-			count++
-		} else {
-			break
+		for sum >= s {
+			sum -= nums[i]
+			i++
+			if res > j-i+1 {
+				res = j - i + 1
+			}
 		}
-
 	}
 
-	return count + 1
+	return res % (n + 1)
 }
 
 func main() {

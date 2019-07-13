@@ -2,6 +2,30 @@ package main
 
 import "fmt"
 
+func longestPalindrome(s string) int {
+	m := make(map[rune]int, len(s))
+
+	for _, r := range s {
+		m[r]++
+	}
+
+	l := 0
+	odd := false
+	for _, c := range m {
+		if c%2 == 0 {
+			l += c
+		} else {
+			l += (c / 2) * 2 // 가장끝 짝수
+			odd = true
+		}
+	}
+
+	if odd {
+		l++
+	}
+	return l
+}
+
 /*
 func longestPalindrome(s string) int {
 	if len(s) == 1 {
