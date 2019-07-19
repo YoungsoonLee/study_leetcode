@@ -3,6 +3,20 @@ package main
 import "fmt"
 
 func containsDuplicate(nums []int) bool {
+	m := make(map[int]int)
+
+	for _, v := range nums {
+		if _, exists := m[v]; exists {
+			return true
+		}
+		m[v]++
+	}
+
+	return false
+}
+
+/*
+func containsDuplicate(nums []int) bool {
 	hm := make(map[int]int)
 
 	for _, n := range nums {
@@ -34,8 +48,9 @@ func containsDuplicate2(nums []int) bool {
 
 	return false
 }
+*/
 
 func main() {
 	a := []int{1, 2, 2, 3, 4, 5}
-	fmt.Println(containsDuplicate2(a))
+	fmt.Println(containsDuplicate(a))
 }
