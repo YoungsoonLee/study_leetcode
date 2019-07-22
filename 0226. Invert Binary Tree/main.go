@@ -17,6 +17,15 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+func invertTree(root *TreeNode) *TreeNode {
+	if root == nil || (root.Left == nil && root.Right == nil) {
+		return root
+	}
+
+	root.Left, root.Right = invertTree(root.Right), invertTree(root.Left)
+	return root
+}
+
 // my solution - failed
 /*
 func invertTree(root *TreeNode) *TreeNode {
@@ -37,6 +46,7 @@ func changeTress(left *TreeNode, right *TreeNode) (subleft, subright *TreeNode) 
 }
 */
 
+/*
 func invertTree(root *TreeNode) *TreeNode {
 	if root == nil || (root.Left == nil && root.Right == nil) {
 		return root
@@ -45,6 +55,7 @@ func invertTree(root *TreeNode) *TreeNode {
 	root.Left, root.Right = invertTree(root.Right), invertTree(root.Left)
 	return root
 }
+*/
 
 func main() {
 	fmt.Println("")
