@@ -7,6 +7,35 @@ type ListNode struct {
 	Next *ListNode
 }
 
+func my_isPalindrome(head *ListNode) bool {
+	res := []int{}
+
+	for head != nil {
+		res = append(res, head.Val)
+		head = head.Next
+	}
+
+	if len(res) == 0 {
+		return true
+	}
+
+	fmt.Print(res)
+
+	i, j := 0, len(res)-1
+
+	for i <= j {
+		fmt.Println(i, j, res[i], res[j])
+
+		if res[i] != res[j] {
+			return false
+		}
+		i++
+		j--
+	}
+
+	return true
+}
+
 func isPalindrome(head *ListNode) bool {
 	vv := make([]int, 0)
 	for head != nil {

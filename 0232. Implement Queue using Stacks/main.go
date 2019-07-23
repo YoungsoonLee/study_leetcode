@@ -7,54 +7,28 @@ type MyQueue struct {
 }
 
 func Constructor() MyQueue {
-	return MyQueue{s: NewStack()}
+	return MyQueue{s: NewStack(), tmp: NewStack()}
 }
 
-// enqueue
-func (q *MyQueue) enqueue(x int) {
-	/*
-		if q.s.Len() == 0 {
-			q.s, q.tmp = q.tmp, q.s
-		}
-	*/
+func (q *MyQueue) Push(x int) {
 	q.s.Push(x)
 }
 
-// dequeue
-func (q *MyQueue) dequeue() int {
-	/*
-		if q.s.Len() == 0 {
-			q.s, q.tmp = q.tmp, q.s
-		}
-		for q.s.Len() > 1 {
-			q.tmp.Push(q.s.Pop())
-		}
-
-		return q.s.Pop()
-	*/
+func (q *MyQueue) Pop() int {
 	if q.tmp.Len() == 0 {
-		for q.s.Len() > 0 {
+		for q.s.Len() > 0 { // !!!! loop
 			q.tmp.Push(q.s.Pop())
 		}
 	}
-
 	return q.tmp.Pop()
 }
 
-// peek - finr front element
-func (q *MyQueue) peek() int {
-	/*
-		res := q.dequeue()
-		q.s.Push(res)
-		q.s = q.tmp
-		return res
-	*/
-	res := q.dequeue()
+func (q *MyQueue) Peek() int {
+	res := q.Pop()
 	q.tmp.Push(res)
 	return res
 }
 
-// empty
 func (q *MyQueue) Empty() bool {
 	return (q.s.Len() + q.tmp.Len()) == 0
 }
@@ -67,12 +41,10 @@ func NewStack() *Stack {
 	return &Stack{nums: []int{}}
 }
 
-// push stack
 func (s *Stack) Push(x int) {
 	s.nums = append(s.nums, x)
 }
 
-// pop stack
 func (s *Stack) Pop() int {
 	res := s.nums[len(s.nums)-1]
 	s.nums = s.nums[:len(s.nums)-1]

@@ -21,6 +21,7 @@ func isPowerOfTwo(n int) bool {
 }
 */
 
+/*
 func isPowerOfTwo(n int) bool {
 	if n < 1 {
 		return false
@@ -35,8 +36,25 @@ func isPowerOfTwo(n int) bool {
 
 	return true
 }
+*/
+
+func isPowerOfTwo(n int) bool {
+	if n < 1 {
+		return false
+	}
+
+	for n > 1 {
+		if n%2 == 1 {
+			return false
+		}
+		n /= 2
+	}
+
+	return true
+
+}
 
 func main() {
-	a := 16
+	a := 218
 	fmt.Println(isPowerOfTwo(a))
 }
