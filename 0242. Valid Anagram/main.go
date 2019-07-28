@@ -50,6 +50,33 @@ func isAnagram(s string, t string) bool {
 }
 */
 
+/*
+func isAnagram(s string, t string) bool {
+	if len(s) != len(t) {
+		return false
+	}
+
+	sm := make(map[byte]int)
+	for i := 0; i < len(s); i++ {
+		sm[s[i]]++
+	}
+
+	for i := 0; i < len(t); i++ {
+		if _, ok := sm[t[i]]; ok {
+			sm[t[i]]--
+		}
+	}
+
+	for _, v := range sm {
+		if v > 0 {
+			return false
+		}
+	}
+
+	return true
+}
+*/
+
 func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
@@ -58,7 +85,7 @@ func isAnagram(s string, t string) bool {
 	sr := []rune(s)
 	tr := []rune(t)
 
-	//fmt.Println(sr, tr)
+	fmt.Println(sr, tr)
 
 	rec := make(map[rune]int, len(sr))
 	//fmt.Println(rec)
@@ -68,7 +95,7 @@ func isAnagram(s string, t string) bool {
 		rec[tr[i]]--
 	}
 
-	//fmt.Println(rec)
+	fmt.Println(rec)
 
 	for _, n := range rec {
 		//fmt.Println("n: ", n)

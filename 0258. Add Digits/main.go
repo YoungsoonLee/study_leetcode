@@ -2,6 +2,21 @@ package main
 
 import "fmt"
 
+func addDigits(num int) int {
+
+	m := num / 10
+	r := num % 10
+
+	if r != 0 {
+		num = m + r
+		addDigits(num)
+	}
+	fmt.Println(m + r)
+	return m + r
+
+}
+
+/*
 // mysolution
 func addDigits(num int) int {
 	if 0 < num && num < 10 {
@@ -21,8 +36,10 @@ func addDigits(num int) int {
 func addDigits2(num int) int {
 	return (num-1)%9 + 1
 }
+*/
 
 func main() {
+	fmt.Println(65535 % 9)
 	a := 65536
 	addDigits(a)
 }

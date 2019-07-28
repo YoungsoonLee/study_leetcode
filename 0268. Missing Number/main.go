@@ -1,7 +1,19 @@
 package main
 
-import "fmt"
+import "sort"
 
+func missingNumber(nums []int) int {
+	sort.Ints(nums)
+	for i := 0; i < len(nums); i++ {
+		if i != nums[i] {
+			return i
+		}
+	}
+
+	return len(nums)
+}
+
+/*
 func missingNumber(nums []int) int {
 	sum := 0
 	nsum := 0
@@ -36,6 +48,7 @@ func missingNumber2(nums []int) int {
 
 	return xor ^ len(nums)
 }
+*/
 
 func main() {
 	a := []int{3, 0, 1}
