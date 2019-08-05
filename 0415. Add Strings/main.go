@@ -5,7 +5,12 @@ import (
 )
 
 func addStrings(s1 string, s2 string) string {
-	/*
+
+}
+
+/*
+func addStrings(s1 string, s2 string) string {
+	--*
 		carry := 0
 		ret := make([]int, 0)
 		i, j := len(s1), len(s2)
@@ -23,7 +28,7 @@ func addStrings(s1 string, s2 string) string {
 
 		fmt.Println(ret)
 		return ""
-	*/
+	*--
 
 	// 确保 n1 <= n2
 	if len(s1) > len(s2) {
@@ -64,6 +69,7 @@ func addStrings(s1 string, s2 string) string {
 	return string(buf[1:])
 
 }
+*/
 
 func main() {
 	n1 := "123"

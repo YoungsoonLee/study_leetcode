@@ -1,20 +1,25 @@
 package main
 
-import "sort"
-
-func numberOfArithmeticSlices(A []int) int {
+func numberOfArithmeticSlices(a []int) int {
 	if len(A) < 3 {
 		return 0
 	}
 
-	sort.Ints(A)
+	// sort.Ints(A)
 
-	m := 0
-	j := 0
-	for i := 0; i < len(A); i++ {
-		j = i + 1
+	var i, j = 0, 0
 
+	for i < len(a) {
+		j = i + 2
+		for j < len(a) && a[j]-a[j-1] == a[j-1]-a[j-2] {
+			j++
+		}
+		j--
+		res += (j - i - 1) * (j - i) / 2
+		i = j
 	}
+
+	return res
 }
 
 func main() {
