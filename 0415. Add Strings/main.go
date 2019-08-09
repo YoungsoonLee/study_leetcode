@@ -5,7 +5,70 @@ import (
 )
 
 func addStrings(s1 string, s2 string) string {
+	// s2를 더 크게 만듬.
+	if len(s1) > len(s2) {
+		s1, s2 = s2, s1
+	}
 
+	n1, n2 := len(s1), len(s2)
+	a1, a2 := []byte(s1), []byte(s2)
+
+	fmt.Println(a1, n1)
+	fmt.Println(a2, n2)
+
+	carry := byte(0)
+	buf := make([]byte, n2+1)
+	buf[0] = '1'
+
+	i := 1
+
+	for i <= n2 {
+		if i <= n1 {
+			buf[n2+1-i] = a1[n1-i] - '0'
+		}
+		buf[n2+1-i] += a2[n2-i] + carry
+	}
+
+	return ""
+
+	/*
+		q1 := make([]int, 0)
+		q2 := make([]int, 0)
+
+		for i := len(s1) - 1; i >= 0; i-- {
+			is, _ := strconv.Atoi(string(s1[i]))
+			q1 = append(q1, is)
+		}
+
+		for i := len(s2) - 1; i >= 0; i-- {
+			is, _ := strconv.Atoi(string(s2[i]))
+			q2 = append(q2, is)
+		}
+
+		fmt.Println(q1)
+		fmt.Println(q2)
+
+		q1s := 0
+		i := 1
+		for _, n := range q1 {
+			q1s += i * n
+			i *= 10
+		}
+
+		q2s := 0
+		i = 1
+		for _, n := range q2 {
+			q2s += i * n
+			i *= 10
+		}
+
+		fmt.Println(q1s)
+		fmt.Println(q2s)
+
+		tsum := q1s + q2s
+		fmt.Println(tsum)
+		return strconv.Itoa(tsum)
+	*/
 }
 
 /*
