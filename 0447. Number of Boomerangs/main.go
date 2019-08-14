@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+func numberOfBoomerangs(points [][]int) int {
 
+}
+
+/*
 func numberOfBoomerangs(points [][]int) int {
 	res := 0
 
@@ -43,6 +46,7 @@ func dSqure(p1, p2 []int) int {
 	y := p2[1] - p1[1]
 	return x*x + y*y
 }
+*/
 
 func main() {
 
