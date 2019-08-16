@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-)
-
 /*
 func findContentChildren(g []int, s []int) int {
 	count := 0
@@ -22,6 +17,7 @@ func findContentChildren(g []int, s []int) int {
 }
 */
 
+/*
 // g: greed factor, s: size cookie?
 func findContentChildren(g []int, s []int) int {
 	sort.Ints(g)
@@ -39,6 +35,26 @@ func findContentChildren(g []int, s []int) int {
 	}
 	fmt.Println(res)
 	return res
+}
+*/
+
+func findContentChildren(g []int, s []int) int {
+	totalCookies := 0
+	content := 0
+	for _, c := range s {
+		totalCookies += c
+	}
+
+	for _, c := range g {
+		if totalCookies > c {
+			totalCookies -= c
+			content++
+		} else {
+			break
+		}
+	}
+
+	return content
 }
 
 func main() {
