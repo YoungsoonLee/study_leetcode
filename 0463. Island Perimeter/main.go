@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 var dx = []int{-1, 1, 0, 0}
 var dy = []int{0, 0, -1, 1}
 
@@ -30,6 +28,7 @@ func islandPerimeter(grid [][]int) int {
 }
 */
 
+/*
 type data struct {
 	n int
 	s string
@@ -43,14 +42,14 @@ func (d *data) checks() int {
 	//
 	return 0
 }
+*/
 
 func main() {
-	v1 := data{}
-	v2 := data{}
-	fmt.Println(v1 == v2)
 }
 
+/*
 func sft(s []int) []int {
 	s[0] = len(s)
 	return s
 }
+*/

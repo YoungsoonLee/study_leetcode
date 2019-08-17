@@ -18,6 +18,6 @@ func constructRectangle(area int) []int {
 }
 
 func main() {
-	a := 7
+	a := 9
 	fmt.Println(constructRectangle(a))
 }

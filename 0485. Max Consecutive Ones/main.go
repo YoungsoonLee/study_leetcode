@@ -18,7 +18,27 @@ func findMaxConsecutiveOnes(nums []int) int {
 	return max
 }
 
+/*
+func findMaxConsecutiveOnes(nums []int) int {
+	mc := 0
+	i, j := 0, 1
+	for j < len(nums) {
+		if i == 0 && nums[i] == 1 {
+			mc++
+		} else if nums[i] == nums[j] {
+			mc++
+			j++
+		} else {
+			i = j + 1
+			j = i + 1
+		}
+	}
+	fmt.Println(mc)
+	return mc
+}
+*/
+
 func main() {
-	a := []int{1, 0, 1, 1, 0, 1}
+	a := []int{1, 1, 0, 1, 1, 1}
 	findMaxConsecutiveOnes(a)
 }

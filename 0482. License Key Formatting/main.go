@@ -44,8 +44,40 @@ func licenseKeyFormatting(s string, k int) string {
 	return string(res)
 }
 
+/*
+func licenseKeyFormatting(s string, k int) string {
+	dIdx := 0
+	q := make([]string, 0)
+
+	var kCount int
+	for i := 0; i < len(s); i++ {
+		kCount = k
+
+		if s[i] == '-' && dIdx == 0 {
+			// first '-'
+			// push queue
+			q = append(q, s[:i])
+			dIdx = i
+		} else if s[i] == '-' && dIdx != 0 {
+			fmt.Println(dIdx, i, len(s[dIdx+1:i]))
+
+			if kCount >= len(s[dIdx+1:i]) {
+				q = append(q, s[dIdx+1:i])
+			}
+
+			kCount--
+			dIdx = i
+		}
+
+	}
+
+	fmt.Println(q)
+	return ""
+}
+*/
+
 func main() {
-	s := "2-5g-3-J"
-	k := 2
+	s := "5F3Z-2e-9-w"
+	k := 4
 	fmt.Println(licenseKeyFormatting(s, k))
 }
