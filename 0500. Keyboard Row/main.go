@@ -55,7 +55,7 @@ func findWords(words []string) []string {
 
 	for _, word := range words {
 		w := strings.ToLower(word)
-		if isAllin(w, qRow) || isAllin(w, aRow) || isAllin(w, zRow) {
+		if isAllin(w, qRow) || isAllin(w, aRow) || isAllin(w, zRow) { // !!!
 			res = append(res, word)
 		}
 	}
