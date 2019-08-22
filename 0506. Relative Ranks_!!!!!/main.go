@@ -25,7 +25,7 @@ func findRelativeRanks(nums []int) []string {
 		as[i] = athlete{sorce: nums[i], index: i}
 	}
 
-	//fmt.Println(as)
+	fmt.Println(as)
 
 	sort.Sort(as)
 	fmt.Println(as)

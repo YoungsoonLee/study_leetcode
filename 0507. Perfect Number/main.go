@@ -13,10 +13,10 @@ func checkPerfectNumber(num int) bool {
 	sum := 1
 	root := int(math.Sqrt(float64(num)))
 
-	//fmt.Println("root: ", root)
+	fmt.Println("root: ", root)
 
 	for i := 2; i <= root; i++ {
-		//fmt.Println(i, num%i, num/i, sum, i+(num/i))
+		fmt.Println(i, num%i, num/i, sum, i+(num/i))
 		if num%i == 0 {
 			sum += i + (num / i)
 		}

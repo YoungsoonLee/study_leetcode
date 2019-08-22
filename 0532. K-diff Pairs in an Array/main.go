@@ -1,7 +1,6 @@
 package main
 
-import "fmt"
-
+/*
 func findPairs(nums []int, k int) int {
 	if k < 0 {
 		return 0
@@ -36,6 +35,11 @@ func findPairs(nums []int, k int) int {
 
 	fmt.Println("ans: ", ans)
 	return ans
+}
+*/
+
+func findPairs(nums []int, k int) int {
+
 }
 
 func main() {
