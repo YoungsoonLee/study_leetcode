@@ -1,6 +1,7 @@
 package main
 
-/*
+import "fmt"
+
 func findPairs(nums []int, k int) int {
 	if k < 0 {
 		return 0
@@ -36,11 +37,36 @@ func findPairs(nums []int, k int) int {
 	fmt.Println("ans: ", ans)
 	return ans
 }
-*/
 
+/*
 func findPairs(nums []int, k int) int {
+	if k == 0 {
+		return len(nums)
+	}
+	m := make(map[int]bool)
+	for _, n := range nums {
+		m[n] = true
+	}
 
+	fmt.Println(m)
+	count := 0
+	ad := make(map[int]bool)
+	for _, n := range nums {
+		if _, ok := m[n+k]; ok {
+			count++
+
+			if _, ok := ad[n+k]; ok {
+				delete(m, n+k)
+			} else {
+				ad[n] = true
+			}
+		}
+	}
+
+	fmt.Println(count)
+	return count
 }
+*/
 
 func main() {
 	a := []int{3, 1, 4, 1, 5}
