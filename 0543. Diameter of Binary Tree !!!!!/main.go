@@ -1,12 +1,17 @@
 package main
 
+import (
+	"fmt"
+
+	"github.com/pkg/profile"
+)
+
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
 }
 
-/*
 func diameterOfBinaryTree(root *TreeNode) int {
 	_, res := helper(root)
 	return res
@@ -23,14 +28,10 @@ func helper(root *TreeNode) (length, diameter int) { // !!! return 2개
 	fmt.Println(leftLen, leftDia, rightLen, rightDia)
 
 	length = max(leftLen, rightLen) + 1
-	diameter = max(leftLen+rightLen, max(leftDia, rightDia))
+
+	diameter = max(leftLen+rightLen, max(leftDia, rightDia)) //??? why ???
 
 	return
-}
-*/
-
-func diameterOfBinaryTree(root *TreeNode) int {
-
 }
 
 func max(a, b int) int {
@@ -41,5 +42,5 @@ func max(a, b int) int {
 }
 
 func main() {
-
+	defer profile.Start()
 }
