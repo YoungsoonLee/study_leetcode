@@ -1,10 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"sort"
 )
 
-/*
 func arrayPairSum(nums []int) int {
 	sum := 0
 	sort.Ints(nums)
@@ -13,19 +13,6 @@ func arrayPairSum(nums []int) int {
 	}
 	fmt.Println(sum)
 	return sum
-}
-*/
-
-func arrayPairSum(nums []int) int {
-	sort.Ints(nums)
-	n := len(nums) / 2
-	min := nums[0]
-	for i := 0; i < n; i++ {
-		if i != 0 {
-			min += nums[i+2]
-		}
-	}
-	return min
 }
 
 func min(a, b int) int {
