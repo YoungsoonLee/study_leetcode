@@ -15,6 +15,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+/*
 func isSubtree(s *TreeNode, t *TreeNode) bool {
 	return DFSFunc(s, t, compareTree)
 }
@@ -55,6 +56,7 @@ func compareTree(t1 *TreeNode, t2 *TreeNode) bool {
 	return compareTree(t1.Right, t2.Right)
 
 }
+*/
 
 /*
 func isSubtree(s *TreeNode, t *TreeNode) bool {
@@ -127,6 +129,38 @@ func isSame(s *TreeNode, t *TreeNode) bool {
 	}
 
 	return isSame(s.Left, t.Left) && isSame(s.Right, t.Right) // !!!
+}
+*/
+
+/*
+func isSubtree(s *TreeNode, t *TreeNode) bool {
+	s = pivotStree(s, t)
+
+	if s.Val != t.Val {
+		return false
+	}
+
+	return compareTree(s.Left, t) && compareTree(s.Right, t)
+}
+
+func compareTree(s *TreeNode, t *TreeNode) bool {
+	if s.Val != t.Val {
+		return false
+	}
+
+	return true
+}
+
+func pivotStree(s *TreeNode, t *TreeNode) *TreeNode {
+	if s.Val != t.Val {
+		if s.Left != nil {
+			pivotStree(s.Left, t)
+		}
+		if s.Right != nil {
+			pivotStree(s.Right, t)
+		}
+	}
+	return s
 }
 */
 
