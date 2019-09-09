@@ -22,7 +22,7 @@ func findTheDifference(s string, t string) byte {
 }
 
 func main() {
-	s := "abcd"
-	t := "abcde"
+	s := "abcdX"
+	t := "abcdXe"
 	fmt.Println(string(findTheDifference(s, t)))
 }
