@@ -37,7 +37,7 @@ func findUnsortedSubarray_my(nums []int) int {
 	fmt.Println(nums)
 	fmt.Println(snums)
 
-	start, end := len(snums), 0
+	start, end := len(snums), 0 // !!!!!
 
 	for i := 0; i < len(snums); i++ {
 		if snums[i] != nums[i] {
@@ -70,6 +70,41 @@ func max(a, b int) int {
 	}
 	return b
 }
+
+/*
+func findUnsortedSubarray(nums []int) int {
+	rIdx := make([]int, 0, len(nums))
+
+	for i := 0; i < len(nums)-1; i++ {
+		if isDecrease(nums[i], nums[i+1]) {
+			rIdx = append(rIdx, i)
+		}
+	}
+
+	if len(rIdx) == 0 {
+		return 0
+	}
+
+	if len(rIdx) == 1 && rIdx[0] == 0 {
+		return 0
+	}
+
+	count := 0
+	for _, i := range rIdx {
+		count += i
+	}
+
+	return count
+}
+
+func isDecrease(a, b int) bool {
+	if a-b < 0 {
+		return false
+	}
+
+	return true
+}
+*/
 
 func main() {
 	a := []int{2, 6, 4, 8, 10, 9, 15}

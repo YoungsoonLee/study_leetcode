@@ -11,8 +11,10 @@ func distributeCandies(candies []int) int {
 		r[c] = true
 	}
 
+	fmt.Println(len(r))
 	fmt.Println(r)
 	fmt.Println(min(len(r), n/2))
+
 	return min(len(r), n/2) //!!!
 }
 
