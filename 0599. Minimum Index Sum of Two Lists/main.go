@@ -17,11 +17,12 @@ func findRestaurant(list1 []string, list2 []string) []string {
 
 	for i, r := range list1 {
 		if j, ok := m2[r]; ok {
-			fmt.Println(min, i, j, i+j, res)
+			fmt.Println(min, i+j, res)
 			if min == i+j {
 				res = append(res, r)
 			}
 			if min > i+j {
+				fmt.Println(res[len(res):])
 				min = i + j
 				res = append(res[len(res):], r) // !!!!
 			}
