@@ -24,10 +24,10 @@ func canPlaceFlowers_my(flowerbed []int, n int) bool {
 	p, c, nn := flowerbed[0], flowerbed[0], flowerbed[0]
 	//count := 0
 
+	// ??? why?
 	if p == 0 && c == 0 && nn == 0 {
 		flowerbed[0] = 1
-		//count++
-		n--
+		n-- // !!!
 	}
 
 	for i := 1; i < len(flowerbed)-2; i++ {
@@ -37,11 +37,11 @@ func canPlaceFlowers_my(flowerbed []int, n int) bool {
 
 		if p == 0 && c == 0 && nn == 0 {
 			flowerbed[i] = 1
-			//count++
 			n--
 		}
 	}
 
+	fmt.Println(flowerbed)
 	fmt.Println(n)
 
 	if n <= 0 {
@@ -56,16 +56,16 @@ func main() {
 	f := []int{1, 0, 0, 0, 1}
 	n := 1
 
-	fmt.Println(canPlaceFlowers(f, n))
+	fmt.Println(canPlaceFlowers_my(f, n))
 
 	f = []int{1, 0, 0, 0, 1}
 	n = 2
 
-	fmt.Println(canPlaceFlowers(f, n))
+	fmt.Println(canPlaceFlowers_my(f, n))
 
 	f = []int{1, 0, 0, 0, 0, 1}
 	n = 2
 
-	fmt.Println(canPlaceFlowers(f, n))
+	fmt.Println(canPlaceFlowers_my(f, n))
 
 }
