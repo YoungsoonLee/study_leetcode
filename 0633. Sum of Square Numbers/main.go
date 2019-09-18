@@ -31,6 +31,8 @@ func isSquare(b2 int) bool {
 }
 
 func main() {
-	a := 181
+	a := 5
 	fmt.Println(judgeSquareSum(a))
+
+	fmt.Println(math.Sqrt(float64(a)))
 }
