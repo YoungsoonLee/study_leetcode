@@ -10,7 +10,7 @@ func findErrorNums(nums []int) []int {
 	// 역전되기 전에 nums [abs (nums [i]) - 1]은 이미 음수이며 abs (nums [i])가 반복 된 숫자임을 나타냅니다
 	// 작업이 끝나면,
 	// nums [i]> 0, nums [i]가 되돌려지지 않았 음을 나타냅니다. i + 1은 누락 된 숫자입니다.
-
+	fmt.Println(nums)
 	dup := 0
 	for i := 0; i < len(nums); i++ {
 		n := abs(nums[i])
@@ -44,6 +44,6 @@ func abs(a int) int {
 }
 
 func main() {
-	a := []int{1, 2, 2, 4}
+	a := []int{2, 2}
 	fmt.Println(findErrorNums(a))
 }
