@@ -15,7 +15,7 @@ func judgeCircle(moves string) bool {
 }
 
 func judgeCircle_my(moves string) bool {
-	move := make(map[string]int)
+	move := make(map[string]int, 4)
 	move["R"] = 1
 	move["L"] = -1
 	move["U"] = 1
