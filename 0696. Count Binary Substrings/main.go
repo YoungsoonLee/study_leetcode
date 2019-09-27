@@ -13,7 +13,8 @@ func countBinarySubstrings(s string) int {
 			}
 		} else {
 			// 더 적은 수는 질문과 일치하는 부분 문자열의 수를 결정합니다.
-			// 예를 들어, "00011"은 "0011", "01"의 하위 문자열이며 첫 번째 "0"은 쓸모가 없습니다
+			// 예를 들어, "00011"은 "0011",
+			// "01"의 하위 문자열이며 첫 번째 "0"은 쓸모가 없습니다
 			count += min(countZero, countOne)
 			if r == '0' {
 				countZero = 1

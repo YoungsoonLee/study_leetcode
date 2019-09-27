@@ -5,6 +5,7 @@ import (
 	"strconv"
 )
 
+/*
 func calPoints(ops []string) int {
 	pointStack := make([]int, 0, len(ops))
 	fmt.Println(pointStack)
@@ -65,8 +66,47 @@ func calPoints_my(ops []string) int {
 
 	return sum
 }
+*/
+
+func calPoints(ops []string) int {
+	stack := make([]int, 0)
+	sum := 0
+	pre := 0
+
+	for _, v := range ops {
+
+		if len(stack) > 0 {
+			pre = stack[len(stack)-1]
+		}
+
+		switch v {
+		case "C":
+			sum -= pre
+			stack = stack[:len(stack)-1]
+		case "D":
+			sum += pre * 2
+			stack = append(stack, pre*2)
+		case "+":
+			pre_b := stack[len(stack)-2]
+			sum += pre + pre_b
+			stack = append(stack, pre+pre_b)
+		default:
+			n, _ := strconv.Atoi(v)
+			//fmt.Println(pre, n)
+			sum += n
+			//fmt.Println(sum)
+			stack = append(stack, n)
+		}
+
+		fmt.Println(stack, sum)
+	}
+
+	//fmt.Println(stack)
+	fmt.Println(sum)
+	return sum
+}
 
 func main() {
-	a := []string{"5", "2", "C", "D", "+"}
+	a := []string{"5", "-2", "4", "C", "D", "9", "+", "+"}
 	calPoints(a)
 }
