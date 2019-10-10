@@ -7,7 +7,7 @@ func isOneBitCharacter(bits []int) bool {
 	i := 0
 
 	for i < n-1 {
-		fmt.Println(i, bits[i])
+		//fmt.Println(i, bits[i])
 		if bits[i] == 1 {
 			i += 2
 		} else {
@@ -15,11 +15,11 @@ func isOneBitCharacter(bits []int) bool {
 		}
 	}
 
-	fmt.Println(i)
+	fmt.Println(i, n-1)
 	return i == n-1 // !!!!!
 }
 
 func main() {
-	a := []int{1, 1, 1, 0}
-	isOneBitCharacter(a)
+	a := []int{1, 0, 0}
+	fmt.Println(isOneBitCharacter(a))
 }
