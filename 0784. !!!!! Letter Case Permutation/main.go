@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
+/*
 func letterCasePermutation(s string) []string {
 	fmt.Println("s: ", s) // !!!!!
 	size := len(s)
@@ -36,6 +40,60 @@ func letterCasePermutation(s string) []string {
 
 	fmt.Println(res)
 	return res
+}
+*/
+
+func letterCasePermutation(S string) []string {
+
+	// get string count first
+	count := 0
+	m := make(map[int]string)
+
+	for i, c := range S {
+		//fmt.Println(c)
+
+		if isChar(c) {
+			count++
+			m[i] = string(c)
+		}
+	}
+
+	res := make([]string, count*2)
+
+	//fmt.Println(res)
+
+	for i := 0; i < count*2; i++ {
+		for j := 0; j < len(S)-1; j++ {
+			if _, ok := m[j]; ok {
+				// fmt.Println(j)
+				// change(S[j]) + S[j+1:]
+				fmt.Println(fmt.Sprintf("%s", S[j+1:]))
+
+				res[i] = change(S[j]) + S[j+1:]
+			}
+		}
+	}
+
+	//fmt.Println(res)
+
+	return res
+
+}
+
+func isChar(c rune) bool {
+	// fmt.Println(c)
+	// fmt.Println('Z')
+	if (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') {
+		return true
+	}
+	return false
+}
+
+func change(s byte) string {
+	if s >= 'a' && s <= 'z' {
+		return strings.ToUpper(string(s))
+	}
+	return strings.ToLower(string(s))
 }
 
 func check(b byte) (byte, bool) {
