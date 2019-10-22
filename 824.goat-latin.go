@@ -75,31 +75,36 @@ import (
 
 // @lc code=start
 func toGoatLatin(S string) string {
-	res := parse(S)
+	ss := parse(S)
 
-	for i, gl := range res {
-		switch gl[0] {
-		case 'a', 'e', 'i', 'o', 'u':
-			res[i] = gl + "ma"
-		default:
-			res[i] = gl[1:] + "ma"
-		}
+	for i := range ss {
+		ss[i] = handleWord(ss[i], i)
 	}
 
-	for i, gl := range res {
-		if gl[len(gl-1)] == 'a' {
-			for j := 0; j < i+1; j++ {
-				res[i] = gl + "a"
-			}
-		}
-	}
-
-	fmt.Println(res)
-	return strings.Join(s, "")
+	return strings.Join(ss, " ")
 }
 
 func parse(s string) []string {
 	return strings.Split(s, " ")
+}
+
+func handleWord(s string, i int) string {
+	postfix := "ma" + strings.Repeat("a", i+1)
+
+	if isBeginWithVowel(s) {
+		return s + postfix
+	}
+	fmt.Println(s[1:] + s[0:1] + postfix)
+	return s[1:] + s[0:1] + postfix
+}
+
+func isBeginWithVowel(s string) bool {
+	switch s[0] {
+	case 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U':
+		return true
+	default:
+		return false
+	}
 }
 
 // @lc code=end
