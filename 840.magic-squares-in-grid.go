@@ -75,14 +75,23 @@ func numMagicSquaresInside(grid [][]int) int {
 	}
 	fmt.Println(totalCount)
 
-	//diagonals top-left to bottom-right
+	// diagonals top-left to bottom-right
 	j := 0
+	sum = 0
 	for i := 0; i < 3; i++ {
-		sum = 0
 		sum += grid[i][j]
-		totalCount = append(totalCount, sum)
 		j++
 	}
+	totalCount = append(totalCount, sum)
+
+	// diagonals top-right to botton-left
+	j = 2
+	sum = 0
+	for i := 0; i < 3; i++ {
+		sum += grid[i][j]
+		j--
+	}
+	totalCount = append(totalCount, sum)
 	fmt.Println(totalCount)
 	return 0
 
