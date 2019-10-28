@@ -1,5 +1,3 @@
-import "fmt"
-
 /*
  * @lc app=leetcode id=844 lang=golang
  *
@@ -76,31 +74,35 @@ import "fmt"
 
 // @lc code=start
 func backspaceCompare(S string, T string) bool {
-	s1 := make([]byte, 0, len(S))
-	t1 := make([]byte, 0, len(T))
+	i := len(S)
+	j := len(T)
 
-	for i := 0; i < len(S); i++ {
-		if S[i] == '#' {
-			s1 = s1[:i-1]
-		} else {
-			s1 = append(s1, S[i])
+	for i >= 0 || j >= 0 {
+		i = nextIndex(&S, i)
+		j = nextIndex(&T, j)
+
+		if i >= 0 && j >= 0 && S[i] != T[j] {
+			return false
 		}
+
 	}
 
-	fmt.Println(s1)
+	return i == j
+}
 
-	for i := 0; i < len(T); i++ {
-		if T[i] == '#' {
-			t1 = t1[:i-1]
+// 返回 s[:i] 中，不是 '#' 的字符的最大的索引号
+func nextIndex(s *string, i int) int {
+	i--
+	count := 0
+	for i >= 0 && ((*s)[i] == '#' || count > 0) {
+		if (*s)[i] == '#' {
+			count++
 		} else {
-			t1 = append(t1, T[i])
+			count--
 		}
+		i--
 	}
-
-	fmt.Println(t1)
-
-	return s1 == t1
-
+	return i
 }
 
 // @lc code=end
