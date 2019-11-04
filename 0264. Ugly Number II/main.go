@@ -31,6 +31,6 @@ func nthUglyNumber(n int) int {
 }
 
 func main() {
-	n := 10
+	n := 18
 	nthUglyNumber(n)
 }
