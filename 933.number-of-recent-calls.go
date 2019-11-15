@@ -68,7 +68,7 @@ func Constructor() RecentCounter {
 
 func (this *RecentCounter) Ping(t int) int {
 	this.times = append(this.times, t)
-	fmt.Println(this.times)
+	//fmt.Println(this.times)
 	fmt.Println(sort.SearchInts(this.times, t-3000))
 	return len(this.times) - sort.SearchInts(this.times, t-3000)
 }
