@@ -1,3 +1,5 @@
+import "fmt"
+
 /*
  * @lc app=leetcode id=941 lang=golang
  *
@@ -77,7 +79,7 @@
 
 // @lc code=start
 func validMountainArray(A []int) bool {
-
+	fmt.Println(A)
 }
 
 // @lc code=end
