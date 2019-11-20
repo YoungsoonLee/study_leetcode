@@ -1,5 +1,3 @@
-import "fmt"
-
 /*
  * @lc app=leetcode id=941 lang=golang
  *
@@ -79,7 +77,24 @@ import "fmt"
 
 // @lc code=start
 func validMountainArray(A []int) bool {
-	fmt.Println(A)
+	size := len(A)
+
+	if size < 3 {
+		return false
+	}
+
+	i := 1
+	for i < size && A[i-1] < A[i] {
+		i++
+	}
+
+	top := i - 1 // top position
+
+	for i < size && A[i-1] > A[i] {
+		i++
+	}
+
+	return 0 < top && top < size-1 && i == size
 }
 
 // @lc code=end
