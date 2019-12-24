@@ -1,3 +1,8 @@
+import (
+	"fmt"
+	"sort"
+)
+
 /*
  * @lc app=leetcode id=970 lang=golang
  *
@@ -63,7 +68,41 @@
 
 // @lc code=start
 func powerfulIntegers(x int, y int, bound int) []int {
-	// test
+	if x == 1 {
+		x = bound + 1
+	}
+
+	if y == 1 {
+		y = bound + 1
+	}
+
+	res := make([]int, 0, 128)
+
+	for i := 1; i < bound; i *= x {
+		for j := 1; i+j <= bound; j *= y {
+			res = append(res, i+j)
+		}
+	}
+	fmt.Println("before: ", res)
+	fmt.Println("after: ", removeRepeated(res))
+	return removeRepeated(res)
+
+}
+
+func removeRepeated(nums []int) []int {
+	sort.Ints(nums)
+	size := len(nums)
+
+	last, j := -1, -1
+	for i := 0; i < size; i++ {
+		if last == nums[i] {
+			continue
+		}
+		j++
+		nums[j], last = nums[i], nums[i]
+	}
+
+	return nums[:j+1]
 }
 
 // @lc code=end
