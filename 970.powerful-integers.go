@@ -86,7 +86,6 @@ func powerfulIntegers(x int, y int, bound int) []int {
 	fmt.Println("before: ", res)
 	fmt.Println("after: ", removeRepeated(res))
 	return removeRepeated(res)
-
 }
 
 func removeRepeated(nums []int) []int {
