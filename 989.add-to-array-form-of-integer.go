@@ -79,7 +79,7 @@
 
 // @lc code=start
 func addToArrayForm(A []int, K int) []int {
-    
+    // test
 }
 // @lc code=end
 
