@@ -1,3 +1,5 @@
+import "fmt"
+
 /*
  * @lc app=leetcode id=985 lang=golang
  *
@@ -84,6 +86,8 @@ func sumEvenAfterQueries(A []int, queries [][]int) []int {
 		res = append(res, sumEven)
 		A[i] = new
 	}
+
+	fmt.Println()
 
 	return res
 }
