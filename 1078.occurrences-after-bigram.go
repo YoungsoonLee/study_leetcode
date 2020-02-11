@@ -1,7 +1,4 @@
-import (
-	"fmt"
-	"strings"
-)
+import "strings"
 
 /*
  * @lc app=leetcode id=1078 lang=golang
@@ -60,35 +57,48 @@ import (
 
 // @lc code=start
 func findOcurrences(text string, first string, second string) []string {
-	sp := strings.Split(text, " ")
-	tp := sp
-	//fmt.Println(sp)
-
-	res := make([]string, 0)
-
-	for i, s := range sp {
-		//fmt.Println(tp)
-		if s == first {
-			fmt.Println(i)
-			tp = tp[i+2:]
-			fmt.Println(tp, i)
-			res = append(res, tp[0])
-			continue
+	words := strings.Split(text, " ")
+	n := len(words)
+	res := make([]string, 0, n)
+	for i := 0; i+2 < n; i++ {
+		if words[i] == first && words[i+1] == second {
+			res = append(res, words[i+2])
 		}
-
-		if s == second {
-			fmt.Println(i)
-			tp = tp[i+2:]
-			fmt.Println(tp, i)
-			res = append(res, tp[0])
-			continue
-		}
-
 	}
 
-	//fmt.Println(tp)
-
 	return res
+
+	/*
+		sp := strings.Split(text, " ")
+		tp := sp
+		//fmt.Println(sp)
+
+		res := make([]string, 0)
+
+		for i, s := range sp {
+			//fmt.Println(tp)
+			if s == first {
+				//fmt.Println(i)
+				tp = tp[i+2:]
+				//fmt.Println(tp, i)
+				res = append(res, tp[0])
+				continue
+			}
+
+			if s == second {
+				//fmt.Println(i)
+				tp = tp[i+2:]
+				//fmt.Println(tp, i)
+				res = append(res, tp[0])
+				continue
+			}
+
+		}
+
+		fmt.Println(res)
+
+		return res
+	*/
 }
 
 // @lc code=end
