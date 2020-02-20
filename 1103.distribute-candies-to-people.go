@@ -68,8 +68,8 @@
  */
 
 // @lc code=start
-func distributeCandies(candies int, num_people int) []int {
-	res := make([]int, num_people)
+func distributeCandies(candies int, people int) []int {
+	res := make([]int, people)
 	
 	k := root(candies)
 	fmt.Println(k)
