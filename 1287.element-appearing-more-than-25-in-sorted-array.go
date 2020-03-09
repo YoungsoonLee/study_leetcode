@@ -40,7 +40,9 @@ func findSpecialInteger(arr []int) int {
 	t := leng >> 2 // 나누기 2
 	for index < leng {
 		curVal := arr[index]
+
 		nextIndex := sort.Search(leng, func(i int) bool { return arr[i] > curVal })
+
 		if nextIndex-index > t {
 			return curVal
 		}
