@@ -64,39 +64,38 @@
 
 // @lc code=start
 func isValid(s string) bool {
+	stack := make([]string, 0)
+	opa := make(map[string]string)
+	opa["("] = ")"
+	opa["{"] = "}"
+	opa["["] = "]"
 
-	/* fail. because It's need a stack.
-	m := make(map[string]int)
+	cpa := make(map[string]string)
+	cpa[")"] = ")"
+	cpa["}"] = "}"
+	cpa["]"] = "]"
 
 	for _, c := range s {
-		switch string(c) {
-		case ")":
-			if _, ok := m["("]; ok {
-				m["("]--
+		ov, ook := opa[string(c)]
+		if string(c) != ov && ook { //open
+			stack = append(stack, ov)
+		}
+
+		cv, cok := cpa[string(c)]
+		if cok { //close
+			if len(stack) == 0 {
+				return false
 			}
-		case "]":
-			if _, ok := m["["]; ok {
-				m["["]--
+
+			if cv != stack[len(stack)-1] {
+				return false
+			} else {
+				stack = stack[0 : len(stack)-1]
 			}
-		case "}":
-			if _, ok := m["{"]; ok {
-				m["{"]--
-			}
-		default:
-			m[string(c)]++
 		}
 	}
 
-	fmt.Println(m)
-
-	for _, v := range m {
-		if v != 0 {
-			return false
-		}
-	}
-
-	return true
-	*/
+	return len(stack) == 0
 }
 
 // @lc code=end
