@@ -35,14 +35,22 @@
 
 // @lc code=start
 func lengthOfLastWord(s string) int {
-	arrStrs := strings.Split(s, " ")
-	fmt.Println(arrStrs, len(arrStrs))
-
-	if len(arrStrs) == 0 {
+	size := len(s)
+	if size == 0 {
 		return 0
 	}
 
-	return len(arrStrs[len(arrStrs)-1])
+	res := 0
+	for i := size-1; i >= 0; i-- {
+		if s[i] == ' ' {
+				if res != 0 {
+					return res
+				}
+				continue
+		}
+		res++
+	}
+	return res
 }
 // @lc code=end
 
