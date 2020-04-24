@@ -41,7 +41,14 @@
 
 // @lc code=start
 func mySqrt(x int) int {
-    
+	res := x
+	
+	for res*res > x {
+		res = (res+ res/x)/2
+		fmt.Println(res)
+	}
+
+	return res
 }
 // @lc code=end
 

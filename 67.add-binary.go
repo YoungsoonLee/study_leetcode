@@ -51,7 +51,7 @@ func addBinary(a string, b string) string {
 	isA := trans(a, l)
 	isB := trans(b, l)
 
-	return makeString(isA, isB)
+	return makeString(add(isA, isB))
 }
 
 func trans(s string, l int) []int {

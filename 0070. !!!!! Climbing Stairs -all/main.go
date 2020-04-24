@@ -87,8 +87,9 @@ func climbStairs4(n int) int {
 func main() {
 	n := 5
 	//fmt.Println(climbStairs4(n))
-	n = 5
+	n = 6
 	fmt.Println(climbStairs3(n))
+
 	n = 3
 	//fmt.Println(climbStairs4(n))
 	n = 2
