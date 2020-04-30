@@ -46,12 +46,13 @@ func getRow(rowIndex int) []int {
 
 	for i:=0; i<rowIndex; i++ {
 		res = append(res, 1)
+		fmt.Println(res)
 		for j:=len(res)-2; j>0; j-- {
 			res[j] += res[j-1]
 		}
 	}
 
-	fmt.Println(res)
+	//fmt.Println(res)
 	return res
 }
 // @lc code=end
