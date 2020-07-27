@@ -128,7 +128,7 @@ func (this *MyStack) Empty() bool {
  }
 
  func (q *Queue) Empty() bool {
-	 reutnn q.Len() == 0
+	return q.Len() == 0
  }
 
 // @lc code=end
